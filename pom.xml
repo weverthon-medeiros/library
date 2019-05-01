@@ -8,7 +8,7 @@
     <packaging>pom</packaging>
     <name>parent-project</name>
     <modules>
-        <module>author-my.challenge.library.service</module>
+        <module>author-service</module>
         <module>user</module>
         <module>discovery</module>
     </modules>
