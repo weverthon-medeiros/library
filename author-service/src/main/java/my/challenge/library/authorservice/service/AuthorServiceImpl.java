@@ -1,15 +1,15 @@
 package my.challenge.library.authorservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import my.challenge.library.authorservice.entity.Author;
 import my.challenge.library.authorservice.repository.AuthorRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 public class AuthorServiceImpl implements AuthorService {
 
     @Autowired
