@@ -1,4 +1,4 @@
-package my.challenge.library.dto;
+package my.challenge.library.authorservice.dto;
 
 import lombok.Data;
 

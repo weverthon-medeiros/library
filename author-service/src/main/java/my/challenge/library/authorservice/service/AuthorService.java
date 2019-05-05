@@ -1,6 +1,6 @@
-package my.challenge.library.service;
+package my.challenge.library.authorservice.service;
 
-import my.challenge.library.entity.Author;
+import my.challenge.library.authorservice.entity.Author;
 
 import java.util.List;
 import java.util.Optional;

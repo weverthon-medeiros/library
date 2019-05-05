@@ -8,11 +8,11 @@
  * and all other intellectual property rights of whatsoever nature in and to these materials are and
  * shall remain the sole and exclusive property of Worldnet TPS Ltd.
  */
-package my.challenge.library.repository;
+package my.challenge.library.authorservice.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import my.challenge.library.entity.Author;
+import my.challenge.library.authorservice.entity.Author;
 
 /**
  * @author Tom Medeiros 01 May 2019

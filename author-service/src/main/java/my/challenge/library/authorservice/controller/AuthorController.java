@@ -1,14 +1,13 @@
-package my.challenge.library.controller;
+package my.challenge.library.authorservice.controller;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import my.challenge.library.dto.AuthorDTO;
-import my.challenge.library.entity.Author;
-import my.challenge.library.service.AuthorService;
+import my.challenge.library.authorservice.dto.AuthorDTO;
+import my.challenge.library.authorservice.entity.Author;
+import my.challenge.library.authorservice.service.AuthorService;
 
 @RestController
 public class AuthorController {

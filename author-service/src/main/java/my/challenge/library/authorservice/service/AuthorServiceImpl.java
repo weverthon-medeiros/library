@@ -1,10 +1,10 @@
-package my.challenge.library.service;
+package my.challenge.library.authorservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import my.challenge.library.entity.Author;
-import my.challenge.library.repository.AuthorRepository;
+import my.challenge.library.authorservice.entity.Author;
+import my.challenge.library.authorservice.repository.AuthorRepository;
 
 import java.util.List;
 import java.util.Optional;

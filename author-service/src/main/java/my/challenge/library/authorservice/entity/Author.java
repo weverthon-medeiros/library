@@ -1,4 +1,4 @@
-package my.challenge.library.entity;
+package my.challenge.library.authorservice.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
