@@ -4,9 +4,7 @@ import my.challenge.library.authorservice.service.AuthorService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import my.challenge.library.authorservice.dto.AuthorDTO;
 import my.challenge.library.authorservice.entity.Author;
@@ -25,12 +23,21 @@ public class AuthorController {
     }
 
     @GetMapping("/authors/{id}")
-    public AuthorDTO getUser(@PathVariable Long id) {
+    public AuthorDTO getAuthor(@PathVariable Long id) {
         return authorService.findById(id).map(this::convertToDTO)
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Author not found. id: "+id));
+    }
+
+    @PostMapping("/authors")
+    public AuthorDTO createAuthor(@RequestBody AuthorDTO authorDTO) {
+        return convertToDTO(authorService.create(convertFromDTO(authorDTO)));
     }
     
     private AuthorDTO convertToDTO(Author author) {
         return modelMapper.map(author, AuthorDTO.class);
+    }
+
+    private Author convertFromDTO(AuthorDTO authorDTO) {
+        return modelMapper.map(authorDTO, Author.class);
     }
 }

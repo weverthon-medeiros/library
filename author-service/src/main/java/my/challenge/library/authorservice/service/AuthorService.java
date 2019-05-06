@@ -13,5 +13,5 @@ public interface AuthorService {
 
     Optional<Author> findById(Long id);
 
-    Author create();
+    Author create(Author author);
 }
