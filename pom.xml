@@ -9,6 +9,7 @@
     <name>parent-project</name>
     <modules>
         <module>author-service</module>
+        <module>book-service</module>
         <module>user</module>
         <module>discovery</module>
     </modules>
