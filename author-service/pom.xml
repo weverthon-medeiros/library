@@ -11,8 +11,8 @@
 	<groupId>my.challenge.library</groupId>
 	<artifactId>author-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>author-my.challenge.library.authorservice.service</name>
-	<description>Demo project for Spring Boot</description>
+	<name>author-service</name>
+	<description>Author Service</description>
 
 	<properties>
 		<java.version>1.8</java.version>
