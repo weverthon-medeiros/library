@@ -17,8 +17,12 @@ import java.util.Optional;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(BookController.class)
@@ -52,5 +56,25 @@ public class BookControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
 
+    }
+    
+    @Test
+    public void givenBook_whenSaveBook_thenReturnJsonObject() throws  Exception {
+        Book book1 = new Book(1L, "Book 1", "Description 1", "Test", 3L);
+        
+        given(bookService.create(book1)).willReturn(book1);
+        
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+
+        mvc.perform(post("/books")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(mapper.writeValueAsBytes(book1)))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.id", is(String.valueOf(book1.getId()))))
+            .andExpect(jsonPath("$.title", is(book1.getTitle())))
+            .andExpect(jsonPath("$.description", is(book1.getDescription())))
+            .andExpect(jsonPath("$.style", is(book1.getStyle())))
+            .andExpect(jsonPath("$.authorId", is(String.valueOf(book1.getAuthorId()))));
     }
 }
